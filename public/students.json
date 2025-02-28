@@ -1,0 +1,33 @@
+[
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "dateOfBirth": "2000-05-15",
+      "GPA": "3.7"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "dateOfBirth": "1999-09-22",
+      "GPA": "3.9"
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "dateOfBirth": "2001-02-11",
+      "GPA": "3.8"
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "dateOfBirth": "2000-12-04",
+      "GPA": "3.6"
+    },
+    {
+      "firstName": "Sarah",
+      "lastName": "Davis",
+      "dateOfBirth": "1998-07-30",
+      "GPA": "4.0"
+    }
+  ]
+  
