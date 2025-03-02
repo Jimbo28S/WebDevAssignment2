@@ -1,19 +1,24 @@
 'use client'
-import { useState, useEffect } from 'react'
- 
-export default function StudentList() {
-  const [students, setStudents] = useState([])
- 
+import { useEffect, useState } from 'react';
+
+const StudentList = () => {
+  const [students, setStudents] = useState([]);
+
   useEffect(() => {
-    async function fetchStudents() {
-      // Get Data from json file
-      const jsonData = await fetch('/students.json')
-      // Parse Data
-      const studentData = await jsonData.json()
-      setStudents(studentData)
-    }
-    fetchStudents()
-  }, [])
+    // Fetch students from the API
+    fetch('/api/students')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data); 
+        setStudents(data);
+      })
+      .catch((error) => console.error('Error fetching students:', error));
+  }, []);
  
   return (
     <div className="flex flex-col bg-white w-full h-fit">
@@ -25,7 +30,7 @@ export default function StudentList() {
                     <li key={student.firstName} className="mb-7 bg-blue-300 border-3 text-black w-60">
                         <p>Name: {student.firstName} {student.lastName}</p>
                         <p>Date of Birth: {student.dateOfBirth}</p>
-                        <p>GPA: {student.GPA}</p>
+                        <p>GPA: {student.gpa}</p>
                     </li>
                 ))}
             </ul>
@@ -33,3 +38,5 @@ export default function StudentList() {
     </div> 
   )
 }
+
+export default StudentList;
